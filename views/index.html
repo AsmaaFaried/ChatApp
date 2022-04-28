@@ -13,15 +13,15 @@
 <body class="bg-dark text-white">
     <h2 class="text-center mt-2">Chat App</h2>
     <div class="container d-flex justify-content-center mt-5 w-25 p-3 rounded border border-primary">
-        <form class="row">
+        <div class="row">   
             <div id="client1" class="bg-gradient"></div>
-            <div id="client2" class="bg-warning"></div>
             <div class="mb-3">
                 <input type="text"  class="form-control" name="chat" id="chat" placeholder="Type a message">
             </div>
             <button type="submit" onclick="sendMessage();" class="btn btn-primary text-light">Send</button>
-          </form>
-    </div>
+    
+        </div>
+    </div> 
 
     <script>
         var socket=io.connect('localhost:3000');
@@ -32,7 +32,6 @@
         
         function sendMessage(){
           var chat = document.getElementById('chat').value;
-          document.getElementById("client2").innerHTML +=chat +"<br/>";
           socket.emit('message', chat);
         }
     </script>
